@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './components/Home/layout ';
+import Layout from './components/Home/layout';
 
 const App = () => {
   return (
