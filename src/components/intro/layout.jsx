@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useContext, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import clickSound from '../../assets/sounds/Tap_Sound.wav'; // Importa el sonido
 import backgroundMusic from '../../assets/sounds/Startup_1.wav'; // Importa la música de fondo
 import carcasaImage from '../../assets/images/carcasa.jpg'; // Importa la imagen inicial
-import { AudioContext } from '../../context/AudioContext'; // Importa el contexto
 import '../../styles/layout.css';
 import MediaContent from './MediaContent'; // Importa el nuevo componente
 
@@ -10,7 +9,6 @@ const Layout = () => {
   const videoRef = useRef(null);
   const audioRef = useRef(null); // Referencia para el audio de clic
   const backgroundAudioRef = useRef(null); // Referencia para el audio de fondo
-  const { isAudioEnabled } = useContext(AudioContext); // Usa el contexto
   const [isInitialImageVisible, setIsInitialImageVisible] = useState(true); // Estado para controlar la visibilidad de la imagen inicial
 
   useEffect(() => {

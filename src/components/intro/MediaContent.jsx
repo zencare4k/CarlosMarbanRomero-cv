@@ -1,8 +1,8 @@
-import React from 'react';
 import layoutImage from '../../assets/layout/layout.png';
 import previewImage from '../../assets/layout/preview.png';
 import introVideo from '../../assets/intro/introDS.mp4';
 import middleImage from '../../assets/layout/advertising.png'; // Nueva imagen
+import PropTypes from 'prop-types';
 
 const MediaContent = ({ handleImageClick, videoRef }) => {
   return (
@@ -27,6 +27,12 @@ const MediaContent = ({ handleImageClick, videoRef }) => {
       />
     </>
   );
+};
+MediaContent.propTypes = {
+  handleImageClick: PropTypes.func.isRequired,
+  videoRef: PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  }).isRequired,
 };
 
 export default MediaContent;

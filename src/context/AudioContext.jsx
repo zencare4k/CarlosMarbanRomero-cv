@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const AudioContext = createContext();
 
@@ -14,4 +15,8 @@ export const AudioProvider = ({ children }) => {
       {children}
     </AudioContext.Provider>
   );
+};
+
+AudioProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
