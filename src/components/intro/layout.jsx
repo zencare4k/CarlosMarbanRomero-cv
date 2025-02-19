@@ -1,13 +1,10 @@
 import React, { useRef, useEffect, useContext, useState } from 'react';
-import layoutImage from '../../assets/layout/layout.png';
-import previewImage from '../../assets/layout/preview.png';
-import introVideo from '../../assets/intro/introDS.mp4';
-import middleImage from '../../assets/layout/advertising.png'; // Nueva imagen
 import clickSound from '../../assets/sounds/Tap_Sound.wav'; // Importa el sonido
 import backgroundMusic from '../../assets/sounds/Startup_1.wav'; // Importa la música de fondo
 import carcasaImage from '../../assets/images/carcasa.jpg'; // Importa la imagen inicial
 import { AudioContext } from '../../context/AudioContext'; // Importa el contexto
 import '../../styles/layout.css';
+import MediaContent from './MediaContent'; // Importa el nuevo componente
 
 const Layout = () => {
   const videoRef = useRef(null);
@@ -79,24 +76,7 @@ const Layout = () => {
         />
       ) : (
         <>
-          <img src={previewImage} alt="Preview" className="preview-image" onClick={handleImageClick} />
-          <video
-            ref={videoRef}
-            src={introVideo}
-            autoPlay
-            muted={true} // Asegúrate de que el video esté siempre muteado
-            className="background-video"
-            onEnded={() => videoRef.current.pause()}
-          />
-          <img src={middleImage} alt="Middle" className="middle-image" onClick={handleImageClick} /> {/* Nueva imagen */}
-          <img
-            src={layoutImage}
-            alt="Layout"
-            className="layout-image"
-            draggable="false"
-            onDragStart={(e) => e.preventDefault()}
-            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
-          />
+          <MediaContent handleImageClick={handleImageClick} videoRef={videoRef} />
           <audio ref={audioRef} src={clickSound} /> {/* Elemento de audio */}
           <audio ref={backgroundAudioRef} src={backgroundMusic} /> {/* Elemento de audio de fondo */}
         </>
