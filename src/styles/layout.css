@@ -1,0 +1,55 @@
+.layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw;  /* Ocupa todo el ancho de la pantalla */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+.preview-image {
+  width: 50%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  position: absolute;
+  z-index: 0; /* Imagen de fondo */
+  margin-top: 570px;
+}
+
+.background-video {
+  width: 50%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  position: absolute;
+  z-index: 1; /* Video justo encima de la imagen de fondo */
+  margin-bottom: 550px;
+  margin-left: 50px;
+  padding-left: 20px;
+}
+
+.middle-image {
+  padding-top: 920px;
+  width: 20%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  position: absolute;
+  z-index: 1.5; /* "touch screen" imagen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeInOut 2s infinite; /* Aplica la animación de parpadeo */
+}
+
+.layout-image {
+  width: 70%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  position: relative;
+  z-index: 2; /* Imagen superior */
+}
+
+/* Define la animación de fundido */
+@keyframes fadeInOut {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
