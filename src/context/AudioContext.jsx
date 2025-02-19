@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
-  const [isAudioEnabled, setIsAudioEnabled] = useState(false); // Comienza muteado
+  const [isAudioEnabled, setIsAudioEnabled] = useState(true); // Comienza con el audio habilitado
 
   const toggleAudio = () => {
     setIsAudioEnabled(!isAudioEnabled);
