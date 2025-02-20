@@ -31,11 +31,16 @@
   opacity: 0; /* Desvanece la imagen */
 }
 
-.preview-image,
-.middle-image,
-.replaced-image,
-.replaced-video-image {
+.preview-image {
   width: 35%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  position: absolute;
+  z-index: 0; /* Imagen de fondo */
+  margin-top: 400px;
+}
+
+.replaced-image {
+  width: 24%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
   position: absolute;
   z-index: 0; /* Imagen de fondo */
@@ -52,7 +57,20 @@
   padding-left: 20px;
 }
 
+.replaced-video-image {
+  width: 23%; /* Ajusta el tamaño según tus necesidades */
+  margin-top: -40px;
+  margin-right: 71px;
+  height: auto;
+  position: absolute;
+  z-index: 1; /* Imagen justo encima de la imagen de fondo */
+  margin-bottom: 400px;
+  margin-left: 50px;
+  padding-left: 20px;
+}
+
 .middle-image {
+  margin-top: 330px;
   width: 15%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
   position: absolute;

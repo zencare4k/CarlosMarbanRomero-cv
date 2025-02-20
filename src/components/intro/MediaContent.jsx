@@ -1,48 +1,72 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import layoutImage from '../../assets/layout/layout.png';
 import previewImage from '../../assets/layout/preview.png';
-import introVideo from '../../assets/intro/introDS.mp4';
-import middleImage from '../../assets/layout/advertising.png'; // Nueva imagen
-import newPreviewImage from '../../assets/images/pantalla_de_abajo.png'; // Nueva imagen para reemplazo
-import newMiddleImage from '../../assets/images/pantalla_de_arriba.png'; // Nueva imagen para reemplazo
+import middleImage from '../../assets/layout/advertising.png';
+import newImage from '../../assets/images/Pantalla_de_abajo.png'; // Nueva imagen para reemplazo
+import newVideoImage from '../../assets/images/pantalla_de_arriba.png'; // Nueva imagen para reemplazo del video
+import introVideo from '../../assets/intro/introDS.mp4'; // Importa el video
 import PropTypes from 'prop-types';
 
-const MediaContent = ({ handleImageClick, videoRef }) => {
-  const [isPreviewImageReplaced, setIsPreviewImageReplaced] = useState(false);
-  const [isMiddleImageReplaced, setIsMiddleImageReplaced] = useState(false);
+const MediaContent = ({ handleImageClick }) => {
+  const [isReplaced, setIsReplaced] = useState(false);
+  const videoRef = useRef(null);
 
-  const handlePreviewImageClick = () => {
-    setIsPreviewImageReplaced(true);
-    handleImageClick();
-  };
-
-  const handleMiddleImageClick = () => {
-    setIsMiddleImageReplaced(true);
+  const handleClick = () => {
+    setIsReplaced(true);
     handleImageClick();
   };
 
   return (
     <>
-      <img
-        src={isPreviewImageReplaced ? newPreviewImage : previewImage}
-        alt="Preview"
-        className="preview-image"
-        onClick={handlePreviewImageClick}
-      />
-      <video
-        ref={videoRef}
-        src={introVideo}
-        autoPlay
-        muted={true} // Asegúrate de que el video esté siempre muteado
-        className="background-video"
-        onEnded={() => videoRef.current.pause()}
-      />
-      <img
-        src={isMiddleImageReplaced ? newMiddleImage : middleImage}
-        alt="Middle"
-        className="middle-image"
-        onClick={handleMiddleImageClick}
-      />
+      {isReplaced ? (
+        <>
+          <img
+            src={newImage}
+            alt="Replaced"
+            className="replaced-image"
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
+          />
+          <img
+            src={newVideoImage}
+            alt="Replaced Video"
+            className="replaced-video-image"
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
+          />
+        </>
+      ) : (
+        <>
+          <img
+            src={previewImage}
+            alt="Preview"
+            className="preview-image"
+            onClick={handleClick}
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
+          />
+          <video
+            ref={videoRef}
+            src={introVideo}
+            autoPlay
+            muted={true} // Asegúrate de que el video esté siempre muteado
+            className="background-video"
+            onEnded={() => videoRef.current.pause()}
+          />
+          <img
+            src={middleImage}
+            alt="Middle"
+            className="middle-image"
+            onClick={handleClick}
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
+          />
+        </>
+      )}
       <img
         src={layoutImage}
         alt="Layout"
@@ -57,9 +81,6 @@ const MediaContent = ({ handleImageClick, videoRef }) => {
 
 MediaContent.propTypes = {
   handleImageClick: PropTypes.func.isRequired,
-  videoRef: PropTypes.shape({
-    current: PropTypes.instanceOf(Element)
-  }).isRequired,
 };
 
 export default MediaContent;
