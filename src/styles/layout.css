@@ -31,7 +31,10 @@
   opacity: 0; /* Desvanece la imagen */
 }
 
-.preview-image {
+.preview-image,
+.middle-image,
+.replaced-image,
+.replaced-video-image {
   width: 35%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
   position: absolute;
@@ -50,7 +53,6 @@
 }
 
 .middle-image {
-  padding-top: 650px;
   width: 15%; /* Ajusta el tamaño según tus necesidades */
   height: auto;
   position: absolute;
@@ -66,6 +68,8 @@
   height: auto;
   position: relative;
   z-index: 2; /* Imagen superior */
+  user-select: none; /* Evita la selección de la imagen */
+  pointer-events: none; /* Evita la interacción con la imagen */
 }
 
 /* Define la animación de fundido */
@@ -77,28 +81,71 @@
 
 /* Media queries para hacer el diseño responsive */
 @media (max-width: 1200px) {
-
-  .preview-image{
+  .preview-image,
+  .middle-image,
+  .replaced-image,
+  .replaced-video-image {
     width: 33%;
     margin-top: 220px;
   }
-  .background-video{
+  .background-video {
     margin-left: 20px;
     margin-top: 270px;
   }
-  .middle-image{
+  .middle-image {
     padding-top: 370px;
   }
 }
 
 @media (max-width: 768px) {
-  .initial-image, .preview-image, .background-video, .middle-image, .layout-image {
+  .initial-image,
+  .preview-image,
+  .background-video,
+  .middle-image,
+  .layout-image,
+  .replaced-image,
+  .replaced-video-image {
     width: 70%;
   }
 }
 
 @media (max-width: 480px) {
-  .initial-image, .preview-image, .background-video, .middle-image, .layout-image {
+  .initial-image,
+  .preview-image,
+  .background-video,
+  .middle-image,
+  .layout-image,
+  .replaced-image,
+  .replaced-video-image {
     width: 90%;
   }
+}
+
+/* Media queries para pantallas ultrawide */
+@media (min-width: 2560px) {
+  .preview-image,
+  .middle-image,
+  .replaced-image,
+  .replaced-video-image {
+    width: 25%;
+    margin-top: 300px;
+  }
+  .background-video {
+    width: 25%;
+    margin-left: 100px;
+    margin-top: 300px;
+  }
+  .middle-image {
+    padding-top: 500px;
+    width: 10%;
+  }
+  .layout-image {
+    width: 40%;
+  }
+}
+
+/* Estilos para las imágenes reemplazadas */
+.replaced-image,
+.replaced-video-image {
+  animation: none; /* Elimina la animación */
 }
