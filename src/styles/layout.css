@@ -74,3 +74,31 @@
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+/* Media queries para hacer el diseño responsive */
+@media (max-width: 1200px) {
+
+  .preview-image{
+    width: 33%;
+    margin-top: 220px;
+  }
+  .background-video{
+    margin-left: 20px;
+    margin-top: 270px;
+  }
+  .middle-image{
+    padding-top: 370px;
+  }
+}
+
+@media (max-width: 768px) {
+  .initial-image, .preview-image, .background-video, .middle-image, .layout-image {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .initial-image, .preview-image, .background-video, .middle-image, .layout-image {
+    width: 90%;
+  }
+}

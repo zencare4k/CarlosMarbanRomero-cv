@@ -1,13 +1,34 @@
+import { useState } from 'react';
 import layoutImage from '../../assets/layout/layout.png';
 import previewImage from '../../assets/layout/preview.png';
 import introVideo from '../../assets/intro/introDS.mp4';
 import middleImage from '../../assets/layout/advertising.png'; // Nueva imagen
+import newPreviewImage from '../../assets/images/pantalla_de_abajo.png'; // Nueva imagen para reemplazo
+import newMiddleImage from '../../assets/images/pantalla_de_arriba.png'; // Nueva imagen para reemplazo
 import PropTypes from 'prop-types';
 
 const MediaContent = ({ handleImageClick, videoRef }) => {
+  const [isPreviewImageReplaced, setIsPreviewImageReplaced] = useState(false);
+  const [isMiddleImageReplaced, setIsMiddleImageReplaced] = useState(false);
+
+  const handlePreviewImageClick = () => {
+    setIsPreviewImageReplaced(true);
+    handleImageClick();
+  };
+
+  const handleMiddleImageClick = () => {
+    setIsMiddleImageReplaced(true);
+    handleImageClick();
+  };
+
   return (
     <>
-      <img src={previewImage} alt="Preview" className="preview-image" onClick={handleImageClick} />
+      <img
+        src={isPreviewImageReplaced ? newPreviewImage : previewImage}
+        alt="Preview"
+        className="preview-image"
+        onClick={handlePreviewImageClick}
+      />
       <video
         ref={videoRef}
         src={introVideo}
@@ -16,7 +37,12 @@ const MediaContent = ({ handleImageClick, videoRef }) => {
         className="background-video"
         onEnded={() => videoRef.current.pause()}
       />
-      <img src={middleImage} alt="Middle" className="middle-image" onClick={handleImageClick} /> {/* Nueva imagen */}
+      <img
+        src={isMiddleImageReplaced ? newMiddleImage : middleImage}
+        alt="Middle"
+        className="middle-image"
+        onClick={handleMiddleImageClick}
+      />
       <img
         src={layoutImage}
         alt="Layout"
@@ -28,6 +54,7 @@ const MediaContent = ({ handleImageClick, videoRef }) => {
     </>
   );
 };
+
 MediaContent.propTypes = {
   handleImageClick: PropTypes.func.isRequired,
   videoRef: PropTypes.shape({
