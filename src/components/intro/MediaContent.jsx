@@ -12,7 +12,7 @@ import clickSound from '../../assets/sounds/Tap_Sound.wav'; // Importa el sonido
 import backgroundImage from '../../assets/Background_Image/background_image.png'; // Importa la imagen de fondo
 import PropTypes from 'prop-types';
 
-const MediaContent = ({ handleImageClick, isInitialImageVisible }) => {
+const MediaContent = ({ handleImageClick }) => {
   const [isReplaced, setIsReplaced] = useState(false);
   const [isBackgroundReplaced, setIsBackgroundReplaced] = useState(false);
   const [isFinalReplaced, setIsFinalReplaced] = useState(false); // Nuevo estado para las imágenes finales

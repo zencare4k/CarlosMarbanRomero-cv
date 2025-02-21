@@ -1,27 +1,37 @@
-.audio-toggle-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 3; /* Asegúrate de que el botón esté por encima de otros elementos */
-  width: 30px; /* Ajusta el tamaño según tus necesidades */
-  height: 30px; /* Ajusta el tamaño según tus necesidades */
-  cursor: pointer;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 288px; /* Reducido un 10% desde 320px */
+  min-height: 100vh; /* Asegúrate de que ocupe toda la altura de la página */
+  background-color: white; /* Fondo de color blanco */
 }
 
 .layout-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
-  width: 100vw;  /* Ocupa todo el ancho de la pantalla */
+  height: 100vh; /* Asegúrate de que ocupe toda la altura de la página */
+  width: 100vw;  /* Asegúrate de que ocupe todo el ancho de la página */
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: white; /* Fondo de color blanco */
+}
+
+/* Resto del CSS */
+.audio-toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3; /* Asegúrate de que el botón esté por encima de otros elementos */
+  width: 27px; /* Reducido un 10% desde 30px */
+  height: 27px; /* Reducido un 10% desde 30px */
+  cursor: pointer;
 }
 
 .initial-image {
-  width: 70%; /* Ajusta el tamaño según tus necesidades */
+  width: 63%; /* Reducido un 10% desde 70% */
   height: auto;
   transition: opacity 0.5s ease-in-out; /* Añade una transición de desvanecimiento */
   cursor: pointer; /* Cambia el cursor a un puntero */
@@ -32,59 +42,56 @@
 }
 
 .preview-image {
-  width: 35%; /* Ajusta el tamaño según tus necesidades */
+  width: 31.5%; /* Reducido un 10% desde 35% */
   height: auto;
   position: absolute;
   z-index: 0; /* Imagen de fondo */
-  margin-top: 400px;
+  transform: translate(0%, 57.5%); /* Reducido un 10% desde 55% */
 }
 
 .replaced-image {
-  width: 23%; /* Ajusta el tamaño según tus necesidades */
+  width: 20.7%; /* Reducido un 10% desde 23% */
   height: auto;
   position: absolute;
   z-index: 0; /* Imagen de fondo */
-  transform: translate(20%, 71%);
+  transform: translate(18%, 70.9%); /* Reducido un 10% desde 20%, 71% */
 }
 
 .background-video {
-  width: 35%; /* Ajusta el tamaño según tus necesidades */
+  width: 31.5%; /* Reducido un 10% desde 35% */
   height: auto;
   position: absolute;
   z-index: 1; /* Video justo encima de la imagen de fondo */
-  margin-bottom: 400px;
-  margin-left: 50px;
-  padding-left: 20px;
+  transform: translate(4.5%, -54%); /* Reducido un 10% desde 5%, -60% */
 }
 
 .replaced-video-image {
-  width: 23%; /* Ajusta el tamaño según tus necesidades */
+  width: 20.7%; /* Reducido un 10% desde 23% */
   height: auto;
-  transform: translate(9.5%, -7%);
   position: absolute;
+  transform: translate(18.2%, -77.3%); /* Reducido un 10% desde 18%, -77% */
   z-index: 0.5; /* Imagen justo encima de la imagen de fondo */
-  margin-bottom: 400px;
-  margin-left: 50px;
-  padding-left: 20px;
 }
 
 .middle-image {
-  margin-top: 330px;
-  width: 15%; /* Ajusta el tamaño según tus necesidades */
+  margin-top: 297px; /* Reducido un 10% desde 330px */
+  width: 13.5%; /* Reducido un 10% desde 15% */
   height: auto;
   position: absolute;
   z-index: 1.5; /* "touch screen" imagen */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -180%); /* Reducido un 10% desde -200% */
   animation: fadeInOut 2s infinite; /* Aplica la animación de parpadeo */
 }
+
 .replaced-video-container {
   position: relative;
   display: inline-block;
 }
+
 .layout-image {
-  width: 50%; /* Ajusta el tamaño según tus necesidades */
+  width: 45%; /* Reducido un 10% desde 50% */
   height: auto;
   position: relative;
   z-index: 2; /* Imagen superior */
@@ -93,28 +100,28 @@
 }
 
 .background-image {
-  
   font-family: 'NintendoDS', sans-serif;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(185%, 42%);
-  width: 23%;
+  transform: translate(210.6%, 14%); /* Reducido un 10% desde 184%, 7.5% */
+  width: 20.7%; /* Reducido un 10% desde 23% */
   z-index: 1; /* Asegúrate de que la imagen de fondo esté por debajo de la layout-image */
 }
 
 .background-text {
   font-family: 'NintendoDS', sans-serif;
-  margin-top: 200px;
+  margin-top: 180px; /* Reducido un 10% desde 200px */
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(160%, -50%);
+  transform: translate(144%, -45%); /* Reducido un 10% desde 160%, -50% */
   color: black;
-  font-size: 24px;
+  font-size: 21.6px; /* Reducido un 10% desde 24px */
   text-align: center;
   z-index: 2; /* Asegúrate de que el texto esté por encima de la imagen de fondo */
 }
+
 .replace-button-container {
   position: absolute;
   top: 50%;
@@ -126,8 +133,8 @@
 }
 
 .replace-button {
-  width: 150px; /* Ajusta el tamaño según tus necesidades */
-  transform: translate(280%, 181.5%);
+  width: 118.8px; /* Reducido un 10% desde 132px */
+  transform: translate(287.7%, 179.25%); /* Reducido un 10% desde 293%, 182.5% */
   cursor: pointer;
   position: relative;
 }
@@ -137,16 +144,15 @@
   height: auto;
 }
 
-
-
 .replace-button-text {
   font-family: 'NintendoDS', sans-serif;
   color: rgb(0, 0, 0);
-  transform: translate(0%, -150%);
-  font-size: 30px;
+  transform: translate(0%, -135%); /* Reducido un 10% desde -150% */
+  font-size: 27px; /* Reducido un 10% desde 30px */
   text-align: center;
   text-shadow: white;
 }
+
 /* Define la animación de fundido */
 @keyframes fadeInOut {
   0% { opacity: 1; }
@@ -160,15 +166,15 @@
   .middle-image,
   .replaced-image,
   .replaced-video-image {
-    width: 33%;
-    margin-top: 220px;
+    width: 29.7%; /* Reducido un 10% desde 33% */
+    margin-top: 198px; /* Reducido un 10% desde 220px */
   }
   .background-video {
-    margin-left: 20px;
-    margin-top: 270px;
+    margin-left: 18px; /* Reducido un 10% desde 20px */
+    margin-top: 243px; /* Reducido un 10% desde 270px */
   }
   .middle-image {
-    padding-top: 370px;
+    padding-top: 333px; /* Reducido un 10% desde 370px */
   }
 }
 
@@ -180,7 +186,7 @@
   .layout-image,
   .replaced-image,
   .replaced-video-image {
-    width: 70%;
+    width: 63%; /* Reducido un 10% desde 70% */
   }
 }
 
@@ -192,7 +198,7 @@
   .layout-image,
   .replaced-image,
   .replaced-video-image {
-    width: 90%;
+    width: 81%; /* Reducido un 10% desde 90% */
   }
 }
 
@@ -202,20 +208,20 @@
   .middle-image,
   .replaced-image,
   .replaced-video-image {
-    width: 25%;
-    margin-top: 300px;
+    width: 22.5%; /* Reducido un 10% desde 25% */
+    margin-top: 270px; /* Reducido un 10% desde 300px */
   }
   .background-video {
-    width: 25%;
-    margin-left: 100px;
-    margin-top: 300px;
+    width: 22.5%; /* Reducido un 10% desde 25% */
+    margin-left: 90px; /* Reducido un 10% desde 100px */
+    margin-top: 270px; /* Reducido un 10% desde 300px */
   }
   .middle-image {
-    padding-top: 500px;
-    width: 10%;
+    padding-top: 450px; /* Reducido un 10% desde 500px */
+    width: 9%; /* Reducido un 10% desde 10% */
   }
   .layout-image {
-    width: 40%;
+    width: 36%; /* Reducido un 10% desde 40% */
   }
 }
 
@@ -224,6 +230,7 @@
 .replaced-video-image {
   animation: none; /* Elimina la animación */
 }
+
 @font-face {
   font-family: 'NintendoDS';
   src: url('../assets/fonts/Nintendo-DS-BIOS.woff2') format('woff2'),
@@ -248,45 +255,36 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'NintendoDS', sans-serif;
 }
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 button {
-  border-radius: 8px;
+  border-radius: 7.2px; /* Reducido un 10% desde 8px */
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.54em 1.08em; /* Reducido un 10% desde 0.6em 1.2em */
+  font-size: 0.9em; /* Reducido un 10% desde 1em */
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3.6px auto -webkit-focus-ring-color; /* Reducido un 10% desde 4px */
 }
 
 @media (prefers-color-scheme: light) {
@@ -302,17 +300,53 @@ button:focus-visible {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'NintendoDS', sans-serif;
-}
-
 .back-button {
-  
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 8%; /* Ajusta el tamaño según tus necesidades */
-  transform: translate(620%, 3120%);
+  width: 7.2%; /* Reducido un 10% desde 8% */
+  transform: translate(688%, 2500%); /* Reducido un 10% desde 620%, 2370% */
   cursor: pointer;
   z-index: 3; /* Asegúrate de que el botón esté por encima de otros elementos */
+}
+
+/* Media queries para pantallas de 1920x1080 */
+@media (min-width: 1920px) and (max-width: 1920px) and (min-height: 1080px) and (max-height: 1080px) {
+  .preview-image,
+  .middle-image,
+  .replaced-image,
+  .replaced-video-image {
+    width: 27%; /* Reducido un 10% desde 30% */
+    margin-top: 180px; /* Reducido un 10% desde 200px */
+  }
+  .background-video {
+    width: 27%; /* Reducido un 10% desde 30% */
+    transform: translate(20%, 20%);
+  }
+  .middle-image {
+    translate: translate(0%, -200%); /* Reducido un 10% desde -220% */
+    width: 18%; /* Reducido un 10% desde 20% */
+  }
+  .layout-image {
+    width: 40.5%; /* Reducido un 10% desde 45% */
+  }
+  .background-image {
+    width: 22.5%; /* Reducido un 10% desde 25% */
+    transform: translate(135%, 36%); /* Reducido un 10% desde 150%, 40% */
+  }
+  .background-text {
+    font-size: 25.2px; /* Reducido un 10% desde 28px */
+    transform: translate(135%, -45%); /* Reducido un 10% desde 150%, -50% */
+  }
+  .replace-button {
+    width: 144px; /* Reducido un 10% desde 160px */
+    transform: translate(243%, 162%); /* Reducido un 10% desde 270%, 180% */
+  }
+  .replace-button-text {
+    font-size: 28.8px; /* Reducido un 10% desde 32px */
+  }
+  .back-button {
+    width: 9%; /* Reducido un 10% desde 10% */
+    transform: translate(18%, 900%); /* Reducido un 10% desde 20%, 1000% */
+  }
 }
