@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import cursorImage from '../../assets/Pointer/pointer.png'; // Asegúrate de que la ruta sea correcta
 
 const CustomCursor = ({ isInitialImageVisible }) => {
@@ -38,11 +39,16 @@ const CustomCursor = ({ isInitialImageVisible }) => {
         left: `${position.x}px`,
         top: `${position.y}px`,
         pointerEvents: 'none',
-        transform: 'translate(-0%, -100%)', // Ajusta la posición para que el puntero esté en la esquina inferior izquierda
+        transform: 'translate(0%, -100%)', // Ajusta la posición para que el puntero esté en la esquina inferior izquierda
         zIndex: 9999,
+        width: '250px', // Ajusta el tamaño del cursor
       }}
     />
   );
+};
+
+CustomCursor.propTypes = {
+  isInitialImageVisible: PropTypes.bool.isRequired,
 };
 
 export default CustomCursor;
