@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   display: flex;
   place-items: center;
   min-width: 288px; /* Reducido un 10% desde 320px */
@@ -11,8 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Asegúrate de que ocupe toda la altura de la página */
-  width: 100vw;  /* Asegúrate de que ocupe todo el ancho de la página */
+  width: 100%;  /* Asegúrate de que ocupe todo el ancho de la página */
   position: absolute;
   top: 0;
   left: 0;
@@ -31,6 +29,7 @@ body {
 }
 
 .initial-image {
+  margin-top: 200px;
   width: 63%; /* Reducido un 10% desde 70% */
   height: auto;
   transition: opacity 0.5s ease-in-out; /* Añade una transición de desvanecimiento */
@@ -62,7 +61,7 @@ body {
   height: auto;
   position: absolute;
   z-index: 1; /* Video justo encima de la imagen de fondo */
-  transform: translate(4.5%, -54%); /* Reducido un 10% desde 5%, -60% */
+  transform: translate(4.5%, -60%); /* Reducido un 10% desde 5%, -60% */
 }
 
 .replaced-video-image {
@@ -74,14 +73,13 @@ body {
 }
 
 .middle-image {
-  margin-top: 297px; /* Reducido un 10% desde 330px */
   width: 13.5%; /* Reducido un 10% desde 15% */
   height: auto;
   position: absolute;
   z-index: 1.5; /* "touch screen" imagen */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -180%); /* Reducido un 10% desde -200% */
+  transform: translate(-50%, 1200%); /* Reducido un 10% desde -200% */
   animation: fadeInOut 2s infinite; /* Aplica la animación de parpadeo */
 }
 
@@ -98,26 +96,75 @@ body {
   user-select: none; /* Evita la selección de la imagen */
   pointer-events: none; /* Evita la interacción con la imagen */
 }
+.additional-texts {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-450%, -50%);
+  
+  z-index: 2; /* Asegúrate de que los textos estén por encima de la imagen de fondo */
+  flex-direction: column;
+  align-items: center;
+}
 
+#arriba {
+  transform: translate(400%, -100%);
+}
+#abajo {
+  transform: translate(660%, 90%);
+  width: 90px;
+}
+.text-with-icon {
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-family: 'NintendoDS', sans-serif;
+  font-size: 20px; /* Tamaño del texto */
+  color: black;
+}
+
+.icon {
+  width: 20px; /* Tamaño del icono */
+  margin-right: 10px;
+}
 .background-image {
   font-family: 'NintendoDS', sans-serif;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(210.6%, 14%); /* Reducido un 10% desde 184%, 7.5% */
+  transform: translate(190.6%, 10%); /* Reducido un 10% desde 184%, 7.5% */
   width: 20.7%; /* Reducido un 10% desde 23% */
-  z-index: 1; /* Asegúrate de que la imagen de fondo esté por debajo de la layout-image */
+  z-index: 0; /* Asegúrate de que la imagen de fondo esté por debajo de la layout-image */
+}
+.icon {
+  width: 50px; /* Tamaño del icono */
+  z-index: 2; /* Asegúrate de que el icono esté por encima de la imagen de fondo */
 }
 
+.text-with-icon {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-family: 'NintendoDS', sans-serif;
+  transform: translate(350%, -50%); /* Ajusta la posición vertical */
+  font-size: 20px; /* Tamaño del texto */
+  color: black;
+  z-index: 2; /* Asegúrate de que el texto esté por encima de la imagen de fondo */
+}
+
+.text{
+  margin-left: 20px;
+}
 .background-text {
   font-family: 'NintendoDS', sans-serif;
-  margin-top: 180px; /* Reducido un 10% desde 200px */
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(144%, -45%); /* Reducido un 10% desde 160%, -50% */
+  transform: translate(-50%, -600%); /* Reducido un 10% desde 160%, -50% */
   color: black;
-  font-size: 21.6px; /* Reducido un 10% desde 24px */
+  font-size: 41.6px; /* Reducido un 10% desde 24px */
   text-align: center;
   z-index: 2; /* Asegúrate de que el texto esté por encima de la imagen de fondo */
 }
@@ -133,21 +180,20 @@ body {
 }
 
 .replace-button {
-  width: 118.8px; /* Reducido un 10% desde 132px */
-  transform: translate(287.7%, 179.25%); /* Reducido un 10% desde 293%, 182.5% */
+  transform: translate(284.7%, 192%); /* Reducido un 10% desde 293%, 182.5% */
   cursor: pointer;
   position: relative;
 }
 
 .replace-button-image {
-  width: 100%; /* Ajusta el tamaño según tus necesidades */
+  width: 150px; /* Ajusta el tamaño según tus necesidades */
   height: auto;
 }
 
 .replace-button-text {
   font-family: 'NintendoDS', sans-serif;
   color: rgb(0, 0, 0);
-  transform: translate(0%, -135%); /* Reducido un 10% desde -150% */
+  transform: translate(0%, -150%); /* Reducido un 10% desde -150% */
   font-size: 27px; /* Reducido un 10% desde 30px */
   text-align: center;
   text-shadow: white;
@@ -167,7 +213,6 @@ body {
   .replaced-image,
   .replaced-video-image {
     width: 29.7%; /* Reducido un 10% desde 33% */
-    margin-top: 198px; /* Reducido un 10% desde 220px */
   }
   .background-video {
     margin-left: 18px; /* Reducido un 10% desde 20px */
@@ -305,7 +350,7 @@ button:focus-visible {
   top: 10px;
   left: 10px;
   width: 7.2%; /* Reducido un 10% desde 8% */
-  transform: translate(688%, 2500%); /* Reducido un 10% desde 620%, 2370% */
+  transform: translate(640%, 2430%); /* Reducido un 10% desde 620%, 2370% */
   cursor: pointer;
   z-index: 3; /* Asegúrate de que el botón esté por encima de otros elementos */
 }
