@@ -6,6 +6,7 @@ import newImage from '../../assets/images/Pantalla_de_abajo.png'; // Nueva image
 import newVideoImage from '../../assets/images/pantalla_de_arriba.png'; // Nueva imagen para reemplazo del video
 import introVideo from '../../assets/intro/introDS.mp4'; // Importa el video
 import buttonImage from '../../assets/icons/skill_button.png'; // Imagen del botón
+import backButtonImage from '../../assets/images/quit_button.png'; // Imagen del botón de retroceso
 import replaceSound from '../../assets/sounds/Enter.wav'; // Importa el sonido
 import clickSound from '../../assets/sounds/Tap_Sound.wav'; // Importa el sonido de clic
 import backgroundImage from '../../assets/Background_Image/background_image.png'; // Importa la imagen de fondo
@@ -15,6 +16,7 @@ const MediaContent = ({ handleImageClick, isInitialImageVisible }) => {
   const [isReplaced, setIsReplaced] = useState(false);
   const [isBackgroundReplaced, setIsBackgroundReplaced] = useState(false);
   const [isFinalReplaced, setIsFinalReplaced] = useState(false); // Nuevo estado para las imágenes finales
+  const [isBackButtonVisible, setIsBackButtonVisible] = useState(false); // Nuevo estado para el botón de retroceso
   const videoRef = useRef(null);
   const audioRef = useRef(null); // Referencia para el audio de reemplazo
   const clickAudioRef = useRef(null); // Referencia para el audio de clic
@@ -35,6 +37,7 @@ const MediaContent = ({ handleImageClick, isInitialImageVisible }) => {
   const handleBackgroundReplace = () => {
     setIsBackgroundReplaced(true);
     setIsFinalReplaced(true); // Actualiza el estado para las imágenes finales
+    setIsBackButtonVisible(true); // Muestra el botón de retroceso
     if (audioRef.current) {
       audioRef.current.currentTime = 0; // Reinicia el audio
       audioRef.current.play().catch(error => {
@@ -43,14 +46,25 @@ const MediaContent = ({ handleImageClick, isInitialImageVisible }) => {
     }
   };
 
+  const handleBackButtonClick = () => {
+    setIsReplaced(true); // Muestra las imágenes de reemplazo
+    setIsBackgroundReplaced(false); // Oculta la imagen de fondo reemplazada
+    setIsFinalReplaced(false); // Restablece el estado de las imágenes finales
+    setIsBackButtonVisible(false); // Oculta el botón de retroceso
+  };
+
   return (
     <>
       {isBackgroundReplaced && (
-        <img
-          src={backgroundImage}
-          alt="Background"
-          className="background-image"
-        />
+        <>
+          <img
+            src={backgroundImage}
+            alt="Background"
+            className="background-image"
+          />
+          <div className="background-text">Java</div> {/* Añade el texto */}
+          <div className='background-text2'></div>
+        </>
       )}
       {isReplaced ? (
         <>
@@ -62,13 +76,30 @@ const MediaContent = ({ handleImageClick, isInitialImageVisible }) => {
             onDragStart={(e) => e.preventDefault()}
             onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
           />
-         
           <img
-            src={buttonImage}
-            alt="Reemplazar Imágenes"
-            onClick={handleBackgroundReplace}
-            className="replace-button"
+            src={isFinalReplaced ? 'ruta/a/nuevaImagenVideoFinal.png' : newVideoImage} // Nueva imagen final del video
+            alt="Replaced Video"
+            className="replaced-video-image"
+            draggable="false"
+            onDragStart={(e) => e.preventDefault()}
+            onContextMenu={(e) => e.preventDefault()} // Prevenir clic derecho
           />
+          <div className="replace-button" onClick={handleBackgroundReplace}>
+            <img
+              src={buttonImage}
+              alt="Reemplazar Imágenes"
+              className="replace-button-image"
+            />
+            <div className="replace-button-text">Habilidades</div> {/* Añade el texto */}
+          </div>
+          {isBackButtonVisible && (
+            <img
+              src={backButtonImage}
+              alt="Retroceder"
+              onClick={handleBackButtonClick}
+              className="back-button"
+            />
+          )}
           <audio ref={audioRef} src={replaceSound} /> {/* Elemento de audio para el sonido de reemplazo */}
         </>
       ) : (
