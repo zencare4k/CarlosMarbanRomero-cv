@@ -7,12 +7,12 @@ import '../../styles/layout.css';
 import MediaContent from './MediaContent'; // Importa el nuevo componente
 import { AudioContext } from '../../context/AudioContext'; // Importa el contexto
 
-const Layout = () => {
+const Layout = ({ setIsInitialImageVisible }) => {
   const videoRef = useRef(null);
   const audioRef = useRef(null); // Referencia para el audio de clic
   const backgroundAudioRef = useRef(null); // Referencia para el audio de fondo
   const { isAudioEnabled, toggleAudio } = useContext(AudioContext); // Usa el contexto
-  const [isInitialImageVisible, setIsInitialImageVisible] = useState(true); // Estado para controlar la visibilidad de la imagen inicial
+  const [isInitialImageVisible, setIsInitialImageVisibleState] = useState(true); // Estado para controlar la visibilidad de la imagen inicial
 
   useEffect(() => {
     if (!isInitialImageVisible) {
@@ -35,7 +35,8 @@ const Layout = () => {
       initialImageElement.classList.add('fade-out');
     }
     setTimeout(() => {
-      setIsInitialImageVisible(false);
+      setIsInitialImageVisibleState(false);
+      setIsInitialImageVisible(false); // Actualiza el estado en el componente App
       const videoElement = videoRef.current;
       if (videoElement) {
         videoElement.muted = false; // Desmutea el video
@@ -77,7 +78,7 @@ const Layout = () => {
         />
       ) : (
         <>
-          <MediaContent handleImageClick={handleImageClick} />
+          <MediaContent handleImageClick={handleImageClick} isInitialImageVisible={isInitialImageVisible} />
           <audio ref={audioRef} src={clickSound} /> {/* Elemento de audio */}
           <audio ref={backgroundAudioRef} src={backgroundMusic} /> {/* Elemento de audio de fondo */}
         </>
