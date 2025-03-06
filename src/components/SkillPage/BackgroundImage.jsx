@@ -19,7 +19,6 @@ const BackgroundImage = ({ text }) => {
     >
       <div
         style={{
-          fontFamily: 'courier',
           position: 'absolute',
           top: '50%',
           left: '50%',

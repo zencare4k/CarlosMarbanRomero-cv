@@ -7,13 +7,10 @@ body {
 }
 
 .layout-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;  /* Asegúrate de que ocupe todo el ancho de la página */
+  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+  transform: translate(30%, -40%); /* Asegúrate de que el contenedor esté centrado */
   background-color: white; /* Fondo de color blanco */
 }
 
@@ -29,7 +26,7 @@ body {
 }
 
 .initial-image {
-  margin-top: 200px;
+  transform: translate(-15%, 20%); /* Asegúrate de que la imagen esté centrada */
   width: 63%; /* Reducido un 10% desde 70% */
   height: auto;
   transition: opacity 0.5s ease-in-out; /* Añade una transición de desvanecimiento */
@@ -45,7 +42,7 @@ body {
   height: auto;
   position: absolute;
   z-index: 0; /* Imagen de fondo */
-  transform: translate(0%, 57.5%); /* Reducido un 10% desde 55% */
+  transform: translate(20%, 125.8%); /* Reducido un 10% desde 55% */
 }
 
 .replaced-image {
@@ -53,7 +50,7 @@ body {
   height: auto;
   position: absolute;
   z-index: 0; /* Imagen de fondo */
-  transform: translate(18%, 70.9%); /* Reducido un 10% desde 20%, 71% */
+  transform: translate(57%, 214.9%); /* Reducido un 10% desde 20%, 71% */
 }
 
 .background-video {
@@ -61,14 +58,14 @@ body {
   height: auto;
   position: absolute;
   z-index: 1; /* Video justo encima de la imagen de fondo */
-  transform: translate(4.5%, -60%); /* Reducido un 10% desde 5%, -60% */
+  transform: translate(25%, 20%); /* Reducido un 10% desde 5%, -60% */
 }
 
 .replaced-video-image {
   width: 20.7%; /* Reducido un 10% desde 23% */
   height: auto;
   position: absolute;
-  transform: translate(18.2%, -77.3%); /* Reducido un 10% desde 18%, -77% */
+  transform: translate(58%, 65.3%); /* Reducido un 10% desde 18%, -77% */
   z-index: 0.5; /* Imagen justo encima de la imagen de fondo */
 }
 
@@ -79,7 +76,7 @@ body {
   z-index: 1.5; /* "touch screen" imagen */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 1200%); /* Reducido un 10% desde -200% */
+  transform: translate(-255%, 400%); /* Reducido un 10% desde -200% */
   animation: fadeInOut 2s infinite; /* Aplica la animación de parpadeo */
 }
 
@@ -109,10 +106,10 @@ body {
 }
 
 #arriba {
-  transform: translate(400%, -100%);
+  transform: translate(50%, -400%);
 }
 #abajo {
-  transform: translate(660%, 90%);
+  transform: translate(100%, -190%);
   width: 90px;
 }
 .text-with-icon {
@@ -134,7 +131,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(190.6%, 10%); /* Reducido un 10% desde 184%, 7.5% */
+  transform: translate(57%, 10%); /* Reducido un 10% desde 184%, 7.5% */
   width: 20.7%; /* Reducido un 10% desde 23% */
   z-index: 0; /* Asegúrate de que la imagen de fondo esté por debajo de la layout-image */
 }
@@ -168,6 +165,12 @@ body {
   text-align: center;
   z-index: 2; /* Asegúrate de que el texto esté por encima de la imagen de fondo */
 }
+.background-replace-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacio entre los botones */
+}
 
 .replace-button-container {
   position: absolute;
@@ -180,7 +183,7 @@ body {
 }
 
 .replace-button {
-  transform: translate(284.7%, 192%); /* Reducido un 10% desde 293%, 182.5% */
+  transform: translate(14.1%, 620%); /* Reducido un 10% desde 293%, 182.5% */
   cursor: pointer;
   position: relative;
 }
@@ -193,7 +196,7 @@ body {
 .replace-button-text {
   font-family: 'NintendoDS', sans-serif;
   color: rgb(0, 0, 0);
-  transform: translate(0%, -150%); /* Reducido un 10% desde -150% */
+  transform: translate(-46.1%, -150%); /* Reducido un 10% desde -150% */
   font-size: 27px; /* Reducido un 10% desde 30px */
   text-align: center;
   text-shadow: white;
@@ -350,7 +353,7 @@ button:focus-visible {
   top: 10px;
   left: 10px;
   width: 7.2%; /* Reducido un 10% desde 8% */
-  transform: translate(640%, 2430%); /* Reducido un 10% desde 620%, 2370% */
+  transform: translate(260%, 2430%); /* Reducido un 10% desde 620%, 2370% */
   cursor: pointer;
   z-index: 3; /* Asegúrate de que el botón esté por encima de otros elementos */
 }
