@@ -4,22 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
-.text-with-icon {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
 
-.icon {
-  width: 24px; /* Ajusta el tamaño del icono según tus necesidades */
-  height: 24px; /* Ajusta el tamaño del icono según tus necesidades */
-  margin-right: 10px;
-}
-
-.text {
-  font-size: 21.6px; /* Ajusta el tamaño del texto según tus necesidades */
-  color: black;
-}
 .logo {
   height: 6em;
   padding: 1.5em;
